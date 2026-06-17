@@ -8,6 +8,8 @@ notification support. The only runtime dependency is `jq`.
 
 > **`ghostty-notify`** is the plugin shipped by this marketplace.
 
+![A "Turn finished" notification from Claude Code, shown natively by Ghostty](docs/demo.png)
+
 ## What you get
 
 - 🔔 **Notifications** on three Claude Code events:

@@ -61,20 +61,20 @@ to `/dev/tty`. Ghostty turns the sequence into a native macOS notification.
 The plugin only acts under Ghostty (`GHOSTTY_RESOURCES_DIR` / `TERM` /
 `TERM_PROGRAM`); in any other terminal it is a no-op.
 
-## Comparison with the native-app approach
+## Design: pure shell, no helper app
 
-[`thejustinwalsh/claude-ghostty-notify`](https://github.com/thejustinwalsh/claude-ghostty-notify)
-builds a small Swift app (`UNUserNotificationCenter` + Accessibility/AppleScript)
-to post notifications and focus the exact pane. That gives **per-pane** precision
-and works independently of Ghostty's OSC handling, at the cost of requiring Xcode
-Command Line Tools, a build step, and Accessibility permissions.
+Some Ghostty notification tools ship a small native helper app (e.g. in Swift)
+that posts notifications through macOS's `UNUserNotificationCenter` and focuses
+the exact pane via the Accessibility / AppleScript APIs. That buys **per-pane**
+precision and works independently of Ghostty's OSC handling — at the cost of a
+build step (Xcode Command Line Tools) and Accessibility permissions.
 
-This plugin takes the opposite trade-off: **no build, no extra permissions**,
-relying on Ghostty's own OSC 777 handling — which on recent Ghostty already does
-per-tab suppression and click-to-focus. The one thing it does not do is
-distinguish between *panes within the same tab* (Ghostty focuses the tab, and a
-notification from a split pane may not target the exact pane). If you need
-per-pane precision, prefer the Swift app.
+This plugin takes the opposite trade-off: **no build, no extra permissions**. It
+relies on Ghostty's own OSC 777 handling, which on recent Ghostty already does
+per-tab suppression and click-to-focus. The one thing it does not do is target a
+specific *pane within a tab* (Ghostty focuses the tab; a notification from a
+split pane may not focus the exact pane). If you need per-pane precision, a
+native helper-app approach is the better fit.
 
 ## License
 

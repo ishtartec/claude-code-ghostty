@@ -1,0 +1,18 @@
+{
+  "name": "claude-code-ghostty",
+  "description": "Ghostty terminal integrations for Claude Code",
+  "owner": {
+    "name": "ishtartec",
+    "url": "https://github.com/ishtartec"
+  },
+  "plugins": [
+    {
+      "name": "ghostty-notify",
+      "description": "Native Ghostty desktop notifications when Claude Code waits for input, requests permission, or finishes a turn. Zero build, no dependencies beyond jq.",
+      "source": "./plugins/ghostty-notify",
+      "version": "1.0.0",
+      "category": "productivity",
+      "tags": ["notifications", "terminal", "ghostty", "macos"]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "ghostty-notify",
+  "description": "Native Ghostty desktop notifications for Claude Code (idle input / permission request / turn finished) via OSC 777. Per-tab suppression and click-to-focus are handled natively by Ghostty. Runs only under Ghostty.",
+  "version": "1.0.0",
+  "author": {
+    "name": "ishtartec",
+    "url": "https://github.com/ishtartec"
+  },
+  "homepage": "https://github.com/ishtartec/claude-code-ghostty",
+  "license": "MIT"
+}
